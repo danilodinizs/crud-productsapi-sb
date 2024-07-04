@@ -8,9 +8,12 @@ import java.util.UUID;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+
 
 @Data
-@Builder
 @Entity
 @Table(name = "TB_PRODUCTS")
 public class ProductModel implements Serializable{
@@ -22,5 +25,6 @@ public class ProductModel implements Serializable{
     UUID idProduct;
     String name;
     BigDecimal value;
+
 
 }
