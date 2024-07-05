@@ -41,7 +41,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(product0.get());
     }
 
-    @GetMapping("/products/{id}")
+    @PutMapping("/products/{id}")
     public ResponseEntity<Object> updateProduct(@PathVariable(value = "id")UUID id,
                                                 @RequestBody @Valid ProductRecordDto productRecordDto) {
         Optional<ProductModel> product0 = productRepository.findById(id);
@@ -49,7 +49,7 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found.");
         }
         var productModel = product0.get();
-        BeanUtils.copyProperties(productRepository, productModel);
+        BeanUtils.copyProperties(productRecordDto, productModel);
         return ResponseEntity.status(HttpStatus.OK).body(productRepository.save(productModel));
     }
 }
