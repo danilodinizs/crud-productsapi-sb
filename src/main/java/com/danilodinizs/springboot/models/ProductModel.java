@@ -10,13 +10,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
+import org.springframework.hateoas.RepresentationModel;
 
 
 @Data
 @Entity
 @Table(name = "TB_PRODUCTS")
-public class ProductModel implements Serializable{
+public class ProductModel extends RepresentationModel<ProductModel> implements Serializable{
     @Serial
     private static final long serialVersionUID = 1L;
 
